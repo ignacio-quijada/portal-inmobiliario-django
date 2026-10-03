@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Catálogo de Inmuebles{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="mb-4">
+
+            <form method="get" class = "row" aling-items-center>
+
+
+                <div class = "col-md-5">
+                    <select name="region" class="form-select">
+                        <option value="">-Región-</option>
+                            {% for region in regiones %}
+                                <option value = "{{ region.id }}">{{ region.nombre }}</option>
+                            {% endfor %}
+                    </select>
+                </div>
+                <div class = "col-md-5">
+                    <select name="comuna" class="form-select">
+                        <option value = "">-Comuna-</option>
+                            {% for comuna in comunas %}
+                                <option value = "{{ comuna.id }}">{{ comuna.nombre }}</option>
+                            {% endfor %}
+                    </select>
+
+                    <div class = "col-md-2">
+                        <button type="submit" class="btn btn-primary mt-2">Filtrar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <div class="row">
+            {% for inmueble in inmuebles %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <img src="{{ inmueble.imagen.url }}" class="card-img-top" alt="{{ inmueble.titulo }}">
+                        <div class="card-body">
+                            <h2>AQUI VA UNA IMAGEN (AUN NO SE IMPLEMENTA)</h2>
+                            <h5 class="card-title">{{ inmueble.titulo }}</h5>
+                            <p class="card-text">{{ inmueble.descripcion|truncatewords:20 }}</p>
+                            <p class="card-text"><strong>Dirección:</strong> {{ inmueble.direccion }}</p>
+                            <p class="card-text"><strong>Tipo de inmueble:</strong> {{ inmueble.tipo_inmueble.nombre }}</p>
+                            <p class="card-text"><strong>Precio:</strong> ${{ inmueble.valor_arriendo }}</p>
+                        
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

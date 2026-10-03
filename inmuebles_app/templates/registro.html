@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Registro de Usuario{% endblock %}
+
+{% block content %}
+    <div class="container mt-5 mb-5" style="max-width: 550px;">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h3 class="card-title text-center mb-4">Registro de Usuario</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-success w-100">Crear Cuenta</button>
+                </form>
+                <hr>
+                <p class="text-center mb-0">
+                    ¿Ya tienes cuenta? <a href="{% url 'login' %}">Inicia sesión aquí</a>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

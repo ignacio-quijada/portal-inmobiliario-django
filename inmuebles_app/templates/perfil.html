@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Mi Perfil{% endblock %}
+
+
+{% block content %}
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-5 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Mis Datos Actuales</h5>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Usuario:</strong> {{ user.username }}</p>
+                        <p><strong>Nombre completo:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+                        <p><strong>Correo electrónico:</strong> {{ user.email }}</p>
+                        <p><strong>Rol en plataforma:</strong> <span class="badge bg-info text-dark">{{ perfil.get_tipo_usuario_display }}</span></p>
+                        <p><strong>RUT:</strong> {{ perfil.rut|default:"No especificado" }}</p>
+                        <p><strong>Teléfono:</strong> {{ perfil.telefono|default:"No especificado" }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-secondary text-white">
+                        <h5 class="mb-0">Modificar Mis Datos Personales</h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            <h6>Datos de Cuenta</h6>
+                            {{ u_form.as_p }}
+                            <hr>
+                            <h6>Datos de Perfil ({{ perfil.get_tipo_usuario_display }})</h6>
+                            {{ p_form.as_p }}
+                            <button type="submit" class="btn btn-primary mt-2">Guardar Cambios</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

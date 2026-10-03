@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Lista de Inmuebles{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h3 class="card-title text-center mb-4">Inmuebles de {{ user.get_full_name }}</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Descripción</th>
+                            <th>Dirección</th>
+                            <th>Tipo de Inmueble</th>
+                            <th>Valor de Arriendo</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for inmueble in inmuebles %}
+                        <tr>
+                            <td>{{ inmueble.descripcion }}</td>
+                            <td>{{ inmueble.direccion }}</td>
+                            <td>{{ inmueble.tipo_inmueble.nombre }}</td>
+                            <td>{{ inmueble.valor_arriendo }}</td>
+                            <td>
+                                {% if inmueble.propietario == request.user %}
+                                <a href="{% url 'actualizar_inmueble' inmueble.id %}" class="btn btn-sm btn-warning">Editar</a>
+                                <form action="{% url 'eliminar_inmueble' inmueble.id %}" method="post" class="d-inline">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                </form>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

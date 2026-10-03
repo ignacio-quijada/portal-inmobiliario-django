@@ -1,0 +1,11 @@
+
+========================================
+REGIÓN: Biobío
+========================================
+  - Av. Los Copihues 123 (Ubicado en: Hualpén) - Valor: $550000
+  - San Martín 456, Depto 21 (Ubicado en: Concepción) - Valor: $400000
+
+========================================
+REGIÓN: Metropolitana
+========================================
+  No hay inmuebles disponibles en esta región.

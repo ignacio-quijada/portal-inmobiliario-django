@@ -1,0 +1,40 @@
+[
+    {
+        "model": "inmuebles_app.region",
+        "pk": 1,
+        "fields": {
+            "nombre": "Biobío"
+        }
+    },
+    {
+        "model": "inmuebles_app.region",
+        "pk": 2,
+        "fields": {
+            "nombre": "Metropolitana"
+        }
+    },
+    {
+        "model": "inmuebles_app.comuna",
+        "pk": 1,
+        "fields": {
+            "nombre": "Hualpén",
+            "region": 1
+        }
+    },
+    {
+        "model": "inmuebles_app.comuna",
+        "pk": 2,
+        "fields": {
+            "nombre": "Concepción",
+            "region": 1
+        }
+    },
+    {
+        "model": "inmuebles_app.comuna",
+        "pk": 3,
+        "fields": {
+            "nombre": "Santiago Centro",
+            "region": 2
+        }
+    }
+]

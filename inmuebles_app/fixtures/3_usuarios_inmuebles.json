@@ -1,0 +1,57 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "username": "juan_propietario",
+            "is_active": true
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 3,
+        "fields": {
+            "username": "maria_propietaria",
+            "is_active": true
+        }
+    },
+    {
+        "model": "inmuebles_app.inmueble",
+        "pk": 1,
+        "fields": {
+            "descripcion": "Hermosa casa de 3 dormitorios cerca de áreas verdes y supermercados.",
+            "direccion": "Av. Los Copihues 123",
+            "tipo_inmueble": 1,
+            "valor_arriendo": 550000,
+            "disponible": true,
+            "comuna": 1,
+            "propietario": 2
+        }
+    },
+    {
+        "model": "inmuebles_app.inmueble",
+        "pk": 2,
+        "fields": {
+            "descripcion": "Departamento amoblado de 1 ambiente ideal para estudiantes.",
+            "direccion": "San Martín 456, Depto 21",
+            "tipo_inmueble": 2,
+            "valor_arriendo": 400000,
+            "disponible": true,
+            "comuna": 2,
+            "propietario": 3
+        }
+    },
+    {
+        "model": "inmuebles_app.inmueble",
+        "pk": 3,
+        "fields": {
+            "descripcion": "Amplia oficina en pleno centro financiero con vista panorámica.",
+            "direccion": "Ahumada 789, Oficina 500",
+            "tipo_inmueble": 3,
+            "valor_arriendo": 800000,
+            "disponible": false,
+            "comuna": 3,
+            "propietario": 2
+        }
+    }
+]

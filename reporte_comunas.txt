@@ -1,0 +1,19 @@
+
+========================================
+COMUNA: Hualpén
+========================================
+  - Dirección: Av. Los Copihues 123
+    Descripción: Hermosa casa de 3 dormitorios cerca de áreas verdes y supermercados.
+
+
+========================================
+COMUNA: Concepción
+========================================
+  - Dirección: San Martín 456, Depto 21
+    Descripción: Departamento amoblado de 1 ambiente ideal para estudiantes.
+
+
+========================================
+COMUNA: Santiago Centro
+========================================
+  No hay inmuebles disponibles.

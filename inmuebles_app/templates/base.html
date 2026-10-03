@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Portal de Inmuebles{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light d-flex flex-column min-vh-100">
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand lh-1 py-1" href="{% url 'perfil' %}">
+                <span class="d-block text-info text-uppercase fw-bold" style="font-size: 0.65rem; letter-spacing: 4px;">
+                    Hito 5
+                </span>
+                <span class="fw-light text-white text-uppercase" style="font-size: 1.1rem; letter-spacing: 2px;">
+                    Portal <span class="fw-semibold">Inmobiliario</span>
+                </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'perfil' %}">Mi Perfil</a>
+                    </li>
+                    {% if user.perfil.tipo_usuario == 'arrendador' %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'nuevo_inmueble' %}">Agregar inmueble</a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'catalogo_inmuebles' %}">Catálogo de Inmuebles</a>
+                    </li>
+                    {% if user.perfil.tipo_usuario == 'arrendador' %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'lista_inmuebles' %}">Lista de Inmuebles</a>
+                    </li>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <form action="{% url 'logout' %}" method="post" class="d-inline">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-outline-danger">Cerrar Sesión</button>
+                        </form>
+                    </li>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="btn btn-outline-light">Iniciar Sesión</a>
+                        <a href="{% url 'registro' %}" class="btn btn-primary">Registrarse</a>
+                    {% endif %}
+                </ul>
+    </nav>
+
+    <div class="container mt-5">
+        {% block content %}
+        {% endblock content%}
+    </div>
+
+<footer class="bg-dark text-light text-center py-3 mt-auto">
+        <div class="container text-light small">
+            Proyecto Portal de Arriendos — Django & PostgreSQL
+        </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+</html>
